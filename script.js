@@ -22,7 +22,7 @@ function getComputerChoice() {
 // Else return true
 
 function getHumanChoice() {
-    let humanChoice = capitalize(prompt("Choose your hero: Rock? Paper? Scissor?"));
+    let humanChoice = prompt("Choose your hero: Rock? Paper? Scissor?");
 
     if (humanChoice != "Rock" || humanChoice != "Paper" || humanChoice != "Scissor") {
         alert("Please choose between Rock, Paper, or Scissor only!");
