@@ -30,3 +30,16 @@ function getHumanChoice() {
         return true;
     }
 }
+
+// Create a capitalize function
+// Substr the first letter of a string
+// Slice the rest of the string
+// Concatenate them but remember to add toUpperCase and toLowerCase
+
+let capitalize = str => {
+    let first = str.substr(0, 1);
+    let rest = str.slice(1);
+
+    return first.toUpperCase() + rest.toLowerCase();
+}
+
