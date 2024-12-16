@@ -22,7 +22,7 @@ function getComputerChoice() {
 // Else return true
 
 function getHumanChoice() {
-    let humanChoice = prompt("Choose your hero: Rock? Paper? Scissor?");
+    let humanChoice = capitalize(prompt("Choose your hero: Rock? Paper? Scissor?"));
 
     if (humanChoice === "Rock" || humanChoice === "Paper" || humanChoice === "Scissor") {
         return humanChoice;
@@ -72,5 +72,3 @@ const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
-
-// Logic error happen in getHumanChoice()
