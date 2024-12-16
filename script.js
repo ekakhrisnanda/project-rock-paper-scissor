@@ -50,6 +50,18 @@ function playGame() {
 
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
+
+    function loopGame() {
+        if (humanScore < 5 && compScore < 5) {
+            getComputerChoice();
+            getHumanChoice();
+            playRound();
+        } else if (humanScore === 5) {
+            alert("You win this match, You are the Champion!!!");
+        } else {
+            alert("You lose the match, Computer is the Champion!!!");
+        }
+    }
     
     function playRound(humanChoice, compChoice) {
         if (humanChoice == compChoice) {
@@ -68,9 +80,9 @@ function playGame() {
 
     let humanScore = 0;
     let compScore = 0;
-
-
 }
+
+playGame();
 
 // If both scores < 5, execute the playRound again and recall choice functions
 // If one of the score === 5, alert who wins
