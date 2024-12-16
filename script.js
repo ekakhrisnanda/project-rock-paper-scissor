@@ -43,32 +43,29 @@ let capitalize = str => {
     return first.toUpperCase() + rest.toLowerCase();
 }
 
-// Create score variables for both and initialize those value with 0
+// Create playGame func
+// Move in playRound func and score variables in it
 
-let humanScore = 0;
-let compScore = 0;
+function playGame() {
 
-// Create a new function named playRound
-// Define 2 parameters for it: humanChoice and compChoice and use them as arguments
-// Write a console.log() that return about win and lose such as: “You lose! Paper beats Rock”.
-// Increment humanScore and compScore based who's the winner each round
-
-function playRound(humanChoice, compChoice) {
-    if (humanChoice == compChoice) {
-        console.log("Tie!")
-    } else if (humanChoice === "Rock" && compChoice === "Scissor" 
-        || humanChoice === "Paper" && compChoice === "Rock" 
-        || humanChoice === "Scissor" && compChoice === "Paper"
-    ) {
-        console.log(`You Win!!! ${humanChoice} beats ${compChoice}`)
-        humanScore++;
-    } else {
-        console.log(`You Lose haha. ${compChoice} beats ${humanChoice}`);
-        compScore++;
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+    
+    function playRound(humanChoice, compChoice) {
+        if (humanChoice == compChoice) {
+            console.log("Tie!")
+        } else if (humanChoice === "Rock" && compChoice === "Scissor" 
+            || humanChoice === "Paper" && compChoice === "Rock" 
+            || humanChoice === "Scissor" && compChoice === "Paper"
+        ) {
+            console.log(`You Win!!! ${humanChoice} beats ${compChoice}`)
+            humanScore++;
+        } else {
+            console.log(`You Lose haha. ${compChoice} beats ${humanChoice}`);
+            compScore++;
+        }
     }
+
+    let humanScore = 0;
+    let compScore = 0;
 }
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
