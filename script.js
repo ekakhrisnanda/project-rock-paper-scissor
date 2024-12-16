@@ -59,13 +59,18 @@ function playGame() {
             || humanChoice === "Scissor" && compChoice === "Paper"
         ) {
             console.log(`You Win!!! ${humanChoice} beats ${compChoice}`)
-            humanScore++;
+            return humanScore++;
         } else {
             console.log(`You Lose haha. ${compChoice} beats ${humanChoice}`);
-            compScore++;
+            return compScore++;
         }
     }
 
     let humanScore = 0;
     let compScore = 0;
+
+
 }
+
+// If both scores < 5, execute the playRound again and recall choice functions
+// If one of the score === 5, alert who wins
