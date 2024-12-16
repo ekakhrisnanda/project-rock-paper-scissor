@@ -55,6 +55,7 @@ function playGame() {
     // This function must call itself and return a new value
     // Else it would stop when it gets a certain point
     // Think for make a new func called decideWinner (just think about it)
+    // Consider to check increment in playRound and think it could be move around inside playGame
     
     function playRound(humanChoice, compChoice) {
         if (humanChoice == compChoice) {
