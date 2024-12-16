@@ -24,10 +24,10 @@ function getComputerChoice() {
 function getHumanChoice() {
     let humanChoice = prompt("Choose your hero: Rock? Paper? Scissor?");
 
-    if (humanChoice != "Rock" || humanChoice != "Paper" || humanChoice != "Scissor") {
-        alert("Please choose between Rock, Paper, or Scissor only!");
+    if (humanChoice === "Rock" || humanChoice === "Paper" || humanChoice === "Scissor") {
+        return humanChoice;
     } else {
-        return true;
+        alert("Please only choose between Rock, Paper, or Scissor only!");
     }
 }
 
@@ -72,3 +72,5 @@ const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
+
+// Logic error happen in getHumanChoice()
