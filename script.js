@@ -51,17 +51,10 @@ function playGame() {
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
 
-    function loopGame() {
-        if (humanScore < 5 && compScore < 5) {
-            getComputerChoice();
-            getHumanChoice();
-            playRound();
-        } else if (humanScore === 5) {
-            alert("You win this match, You are the Champion!!!");
-        } else {
-            alert("You lose the match, Computer is the Champion!!!");
-        }
-    }
+
+    // This function must call itself and return a new value
+    // Else it would stop when it gets a certain point
+    // Think for make a new func called decideWinner (just think about it)
     
     function playRound(humanChoice, compChoice) {
         if (humanChoice == compChoice) {
