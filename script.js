@@ -1,26 +1,3 @@
-function getComputerChoice() {
-    let compChoice = Math.random();
-
-    if (compChoice <= 0.33) {
-        return "Rock";
-    } else if (compChoice <= 0.66) {
-        return "Paper";
-    } else {
-        return "Scissor";
-    }
-}
-
-function getHumanChoice() {
-    let humanChoice = capitalize(prompt("Choose your hero: Rock? Paper? Scissor?"));
-
-    if (humanChoice === "Rock" || humanChoice === "Paper" || humanChoice === "Scissor") {
-        return humanChoice;
-    } else {
-        alert("Please only choose between Rock, Paper, or Scissor only!");
-        getHumanChoice();
-    }
-}
-
 let capitalize = str => {
     let first = str.substr(0, 1);
     let rest = str.slice(1);
@@ -28,13 +5,48 @@ let capitalize = str => {
     return first.toUpperCase() + rest.toLowerCase();
 }
 
-function playGame() {
+function playGame(humanScore, compScore) {
 
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
     const targetScore = 5;
     let humanScore = 0;
     let compScore = 0;
+
+    // Check if the game should stop
+    function loopGame() {
+        if(humanScore >= targetScore || compScore >= targetScore) {
+            if (humanScore >= targetScore) {
+                console.log("Congratulations, you are the champion!");
+            } else {
+                console.log("Computer wins. Better luck next time!");
+            }
+        }
+        return;
+    }
+
+    function getComputerChoice() {
+        let compChoice = Math.random();
+    
+        if (compChoice <= 0.33) {
+            return "Rock";
+        } else if (compChoice <= 0.66) {
+            return "Paper";
+        } else {
+            return "Scissor";
+        }
+    }
+    
+    function getHumanChoice() {
+        let humanChoice = capitalize(prompt("Choose your hero: Rock? Paper? Scissor?"));
+    
+        if (humanChoice === "Rock" || humanChoice === "Paper" || humanChoice === "Scissor") {
+            return humanChoice;
+        } else {
+            alert("Please only choose between Rock, Paper, or Scissor only!");
+            getHumanChoice();
+        }
+    }
     
     function playRound(humanChoice, compChoice) {
         if (humanChoice == compChoice) {
@@ -52,7 +64,9 @@ function playGame() {
     }
 }
 
-playGame(0, 0);
+playGame();
+
+// Probably scores are the value to decide if the game need to loop or not
 
 // If both scores < 5, execute the playRound again and recall choice functions
 // If one of the score === 5, alert who wins
