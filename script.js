@@ -12,19 +12,6 @@ function playGame(humanScore, compScore) {
 
     const targetScore = 5;
 
-    // Check if the game should stop
-    function loopGame() {
-        if(humanScore >= targetScore || compScore >= targetScore) {
-            if (humanScore >= targetScore) {
-                console.log("Congratulations, you are the champion!");
-            } else {
-                console.log("Computer wins. Better luck next time!");
-            }
-        } else {
-            return;
-        }
-    }
-
     function getComputerChoice() {
         let compChoice = Math.random();
     
@@ -66,7 +53,19 @@ function playGame(humanScore, compScore) {
         }
     }
 
-    playGame(humanScore, compScore);
+        // Check if the game should stop
+    function loopGame() {
+        if(humanScore >= targetScore || compScore >= targetScore) {
+            if (humanScore >= targetScore) {
+                console.log("Congratulations, you are the champion!");
+            } else {
+                console.log("Computer wins. Better luck next time!");
+            }
+            return;
+        } else {
+            return playGame(humanScore, compScore);
+        }
+    }
 }
 
 playGame(0, 0);
