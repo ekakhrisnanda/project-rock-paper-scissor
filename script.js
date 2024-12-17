@@ -1,9 +1,3 @@
-// Create getComputerChoice function
-// Pick a random choice between rock, paper, scissor using math.random()
-// If num <= 0.33, picks Rock
-// If num <= 0.66, picks Paper
-// Else picks Scissor
-
 function getComputerChoice() {
     let compChoice = Math.random();
 
@@ -16,11 +10,6 @@ function getComputerChoice() {
     }
 }
 
-// Create getHumanChoice function
-// Store the value inside humanChoice variable
-// If values != rock || != paper || != scissor return alert
-// Else return true
-
 function getHumanChoice() {
     let humanChoice = capitalize(prompt("Choose your hero: Rock? Paper? Scissor?"));
 
@@ -28,13 +17,9 @@ function getHumanChoice() {
         return humanChoice;
     } else {
         alert("Please only choose between Rock, Paper, or Scissor only!");
+        getHumanChoice();
     }
 }
-
-// Create a capitalize function
-// Substr the first letter of a string
-// Slice the rest of the string
-// Concatenate them but remember to add toUpperCase and toLowerCase
 
 let capitalize = str => {
     let first = str.substr(0, 1);
@@ -43,21 +28,13 @@ let capitalize = str => {
     return first.toUpperCase() + rest.toLowerCase();
 }
 
-// Create playGame func
-// Move in playRound func and score variables in it
-
 function playGame() {
 
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     const targetScore = 5;
-
-
-    // This function must call itself and return a new value
-    // Else it would stop when it gets a certain point
-    // Think for make a new func called decideWinner (just think about it)
-    // Consider to check increment in playRound and think it could be move around inside playGame
-    // Make a new variable called targetScore
+    let humanScore = 0;
+    let compScore = 0;
     
     function playRound(humanChoice, compChoice) {
         if (humanChoice == compChoice) {
@@ -73,12 +50,24 @@ function playGame() {
             return compScore++;
         }
     }
-
-    let humanScore = 0;
-    let compScore = 0;
 }
 
-playGame();
+playGame(0, 0);
 
 // If both scores < 5, execute the playRound again and recall choice functions
 // If one of the score === 5, alert who wins
+
+// Take input from user and also computer and store them inside their variables
+// When the game starts, processing who wins and lose
+// If someone wins in the first round, do increment in their score
+// restart the game by taking user input and computer input
+// Recall the round function again and if someone wins do increment
+// Until someone gets into 5, declare who's the champion
+
+    // This function must call itself and return a new value
+    // Else it would stop when it gets a certain point
+    // Think for make a new func called decideWinner (just think about it)
+    // Consider to check increment in playRound and think it could be move around inside playGame
+    // Make a new variable called targetScore
+
+// "Congratulations, you are the champion!" "Computer wins. Better luck next time!"
