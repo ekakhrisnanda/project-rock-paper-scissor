@@ -5,13 +5,12 @@ let capitalize = str => {
     return first.toUpperCase() + rest.toLowerCase();
 }
 
+let humanScore = 0;
+let compScore = 0;
+
 function playGame(humanScore, compScore) {
 
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
     const targetScore = 5;
-    let humanScore = 0;
-    let compScore = 0;
 
     // Check if the game should stop
     function loopGame() {
@@ -21,8 +20,9 @@ function playGame(humanScore, compScore) {
             } else {
                 console.log("Computer wins. Better luck next time!");
             }
+        } else {
+            return;
         }
-        return;
     }
 
     function getComputerChoice() {
@@ -44,9 +44,12 @@ function playGame(humanScore, compScore) {
             return humanChoice;
         } else {
             alert("Please only choose between Rock, Paper, or Scissor only!");
-            getHumanChoice();
+            return getHumanChoice();
         }
     }
+
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
     
     function playRound(humanChoice, compChoice) {
         if (humanChoice == compChoice) {
@@ -56,15 +59,17 @@ function playGame(humanScore, compScore) {
             || humanChoice === "Scissor" && compChoice === "Paper"
         ) {
             console.log(`You Win!!! ${humanChoice} beats ${compChoice}`)
-            return humanScore++;
+            humanScore++;
         } else {
             console.log(`You Lose haha. ${compChoice} beats ${humanChoice}`);
-            return compScore++;
+            compScore++;
         }
     }
+
+    playGame(humanScore, compScore);
 }
 
-playGame();
+playGame(0, 0);
 
 // Probably scores are the value to decide if the game need to loop or not
 
