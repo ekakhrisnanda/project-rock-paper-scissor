@@ -38,7 +38,7 @@ function playGame() {
     const computerSelection = getComputerChoice();
     
     function playRound(humanChoice, compChoice) {
-        if (humanChoice == compChoice) {
+        if (humanChoice === compChoice) {
             console.log("Tie!")
         } else if (humanChoice === "Rock" && compChoice === "Scissor" 
             || humanChoice === "Paper" && compChoice === "Rock" 
@@ -51,23 +51,7 @@ function playGame() {
             compScore++;
         }
     }
-
-        // Check if the game should stop
-    function loopGame() {
-        if(humanScore >= targetScore || compScore >= targetScore) {
-            if (humanScore >= targetScore) {
-                console.log("Congratulations, you are the champion!");
-            } else {
-                console.log("Computer wins. Better luck next time!");
-            }
-            return;
-        } else {
-            return playGame();
-        }
-    }
 }
-
-playGame();
 
 // Probably scores are the value to decide if the game need to loop or not
 
