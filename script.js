@@ -54,6 +54,8 @@ function playGame() {
         }
     }
 
+    playRound();
+
     function loopGame() {
         if (humanScore >= targetScore || compScore >= targetScore) {
             if (humanScore >= targetScore) {
@@ -65,7 +67,7 @@ function playGame() {
         } else {
             humanSelection = getHumanChoice();
             computerSelection = getComputerChoice();
-            return playRound(humanSelection, computerSelection);
+            playRound(humanSelection, computerSelection);
             loopGame();
         }
     }
