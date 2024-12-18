@@ -45,10 +45,10 @@ function playGame() {
             || humanChoice === "Scissor" && compChoice === "Paper"
         ) {
             console.log(`You Win!!! ${humanChoice} beats ${compChoice}`)
-            humanScore++;
+            return humanScore++;
         } else {
             console.log(`You Lose haha. ${compChoice} beats ${humanChoice}`);
-            compScore++;
+            return compScore++;
         }
     }
 }
@@ -64,11 +64,5 @@ function playGame() {
 // restart the game by taking user input and computer input
 // Recall the round function again and if someone wins do increment
 // Until someone gets into 5, declare who's the champion
-
-    // This function must call itself and return a new value
-    // Else it would stop when it gets a certain point
-    // Think for make a new func called decideWinner (just think about it)
-    // Consider to check increment in playRound and think it could be move around inside playGame
-    // Make a new variable called targetScore
 
 // "Congratulations, you are the champion!" "Computer wins. Better luck next time!"
