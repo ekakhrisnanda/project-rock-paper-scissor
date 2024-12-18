@@ -5,35 +5,34 @@ let capitalize = str => {
     return first.toUpperCase() + rest.toLowerCase();
 }
 
-let humanScore = 0;
-let compScore = 0;
+function getComputerChoice() {
+    let compChoice = Math.random();
 
-function playGame(humanScore, compScore) {
+    if (compChoice <= 0.33) {
+        return "Rock";
+    } else if (compChoice <= 0.66) {
+        return "Paper";
+    } else {
+        return "Scissor";
+    }
+}
+
+function getHumanChoice() {
+    let humanChoice = capitalize(prompt("Choose your hero: Rock? Paper? Scissor?"));
+
+    if (humanChoice === "Rock" || humanChoice === "Paper" || humanChoice === "Scissor") {
+        return humanChoice;
+    } else {
+        alert("Please only choose between Rock, Paper, or Scissor only!");
+        return getHumanChoice();
+    }
+}
+
+function playGame() {
 
     const targetScore = 5;
-
-    function getComputerChoice() {
-        let compChoice = Math.random();
-    
-        if (compChoice <= 0.33) {
-            return "Rock";
-        } else if (compChoice <= 0.66) {
-            return "Paper";
-        } else {
-            return "Scissor";
-        }
-    }
-    
-    function getHumanChoice() {
-        let humanChoice = capitalize(prompt("Choose your hero: Rock? Paper? Scissor?"));
-    
-        if (humanChoice === "Rock" || humanChoice === "Paper" || humanChoice === "Scissor") {
-            return humanChoice;
-        } else {
-            alert("Please only choose between Rock, Paper, or Scissor only!");
-            return getHumanChoice();
-        }
-    }
+    let humanScore = 0;
+    let compScore = 0;
 
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
@@ -63,12 +62,12 @@ function playGame(humanScore, compScore) {
             }
             return;
         } else {
-            return playGame(humanScore, compScore);
+            return playGame();
         }
     }
 }
 
-playGame(0, 0);
+playGame();
 
 // Probably scores are the value to decide if the game need to loop or not
 
