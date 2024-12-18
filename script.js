@@ -28,14 +28,16 @@ function getHumanChoice() {
     }
 }
 
+
+
 function playGame() {
 
     const targetScore = 5;
     let humanScore = 0;
     let compScore = 0;
 
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
     
     function playRound(humanChoice, compChoice) {
         if (humanChoice === compChoice) {
@@ -51,7 +53,30 @@ function playGame() {
             return compScore++;
         }
     }
+
+    function loopGame() {
+        if (humanScore >= targetScore || compScore >= targetScore) {
+            if (humanScore >= targetScore) {
+                console.log("Congratulations, you are the champion!");
+            } else {
+                console.log("Computer wins. Better luck next time!");
+            }
+            return;
+        } else {
+            humanSelection = getHumanChoice();
+            computerSelection = getComputerChoice();
+            return playRound(humanSelection, computerSelection);
+            loopGame();
+        }
+    }
+
+    loopGame();
 }
+
+playGame();
+// next round, take a new input from user and comp
+// Stores the values inside the variable to overwrite previous values
+// Play the playRound again
 
 // Probably scores are the value to decide if the game need to loop or not
 
