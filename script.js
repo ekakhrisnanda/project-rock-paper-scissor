@@ -5,7 +5,7 @@ let capitalize = str => {
     return first.toUpperCase() + rest.toLowerCase();
 }
 
-function getComputerChoice() {
+const getComputerChoice = () => {
     let compChoice = Math.random();
 
     if (compChoice <= 0.33) {
@@ -15,7 +15,7 @@ function getComputerChoice() {
     } else {
         return "Scissor";
     }
-}
+};
 
 const getHumanChoice = arg => {
     let humanChoice = capitalize(arg);
