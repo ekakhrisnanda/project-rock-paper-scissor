@@ -44,18 +44,16 @@ function playRound(humanChoice, compChoice) {
 }
 
 function loopGame() {
-    if (humanScore >= targetScore || compScore >= targetScore) {
-        if (humanScore >= targetScore) {
-            console.log("Congratulations, you are the champion!");
-        } else {
-            console.log("Computer wins. Better luck next time!");
-        }
-        return;
-    } else {
+    for(; humanScore < targetScore && compScore < targetScore; i++) {
         humanSelection = getHumanChoice(result);
         computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
-        loopGame();
+    }
+
+    if(humanScore >= targetScore) {
+        console.log("Congratulations, you are the champion!");
+    } else {
+        console.log("Computer wins. Better luck next time!");
     }
 }
 
