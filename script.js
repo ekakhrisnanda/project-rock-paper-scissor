@@ -91,6 +91,13 @@ let humanScore = 0;
 let compScore = 0;
 
 const score = document.querySelector('.score-container');
+const displayHumanScore = document.createElement('p');
+const displayCompScore = document.createElement('p');
+displayHumanScore.textContent = "Human Score = " + humanScore;
+displayCompScore.textContent = "Computer Score = " + compScore;
+score.appendChild(displayHumanScore);
+score.appendChild(displayCompScore);
+
 
 
 const buttons = document.querySelectorAll('.button');
