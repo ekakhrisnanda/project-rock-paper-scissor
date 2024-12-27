@@ -75,10 +75,10 @@ const targetScore = 5;
 let humanScore = 0;
 let compScore = 0;
 
-// Winner per round
+// Winner per round & the champion announcer
 const round = document.querySelector('.round');
-const displayRoundWinner = document.createElement('p');
-round.appendChild(displayRoundWinner);
+const displayWinner = document.createElement('p');
+round.appendChild(displayWinner);
 
 // Score display
 const score = document.querySelector('.score-container');
@@ -91,19 +91,18 @@ score.appendChild(displayCompScore);
 
 function playRound(humanSelection, computerSelection) {
     if (humanSelection === computerSelection) {
-        displayRoundWinner.textContent = 'Tie';
+        displayWinner.textContent = 'Tie';
     } else if (humanSelection === "Rock" && computerSelection === "Scissor" 
         || humanSelection === "Paper" && computerSelection === "Rock" 
         || humanSelection === "Scissor" && computerSelection === "Paper"
     ) {
-        displayRoundWinner.textContent = `You Win!!! ${humanSelection} beats ${computerSelection}`;
+        displayWinner.textContent = `You Win!!! ${humanSelection} beats ${computerSelection}`;
         return humanScore++;
     } else {
-        displayRoundWinner.textContent = `You Lose haha. ${computerSelection} beats ${humanSelection}`;
+        displayWinner.textContent = `You Lose haha. ${computerSelection} beats ${humanSelection}`;
         return compScore++;
     }
 }
-
 
 const buttons = document.querySelectorAll('.button');
 buttons.forEach(button => {
