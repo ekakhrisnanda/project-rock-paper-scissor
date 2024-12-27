@@ -92,6 +92,7 @@ function playRound(humanSelection, computerSelection) {
 // }
 
 const buttons = document.querySelectorAll('.button');
+const score = document.querySelector('.score-container');
 const targetScore = 5;
 let humanScore = 0;
 let compScore = 0;
