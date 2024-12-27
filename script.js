@@ -17,17 +17,6 @@ const getComputerChoice = () => {
     }
 };
 
-const getHumanChoice = arg => {
-    let humanChoice = capitalize(arg);
-
-    if (humanChoice === "Rock" || humanChoice === "Paper" || humanChoice === "Scissor") {
-        return humanChoice;
-    } else {
-        alert("Please only choose between Rock, Paper, or Scissor only!");
-        return getHumanChoice();
-    }
-};
-
 function playRound(humanChoice, compChoice) {
     if (humanChoice === compChoice) {
         console.log("Tie!")
@@ -109,6 +98,7 @@ let compScore = 0;
 
 buttons.forEach((button) => {
     button.addEventListener('click', event => {
-        
+
+
     });
 });
