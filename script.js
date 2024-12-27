@@ -1,10 +1,3 @@
-let capitalize = str => {
-    let first = str.substr(0, 1);
-    let rest = str.slice(1);
-
-    return first.toUpperCase() + rest.toLowerCase();
-}
-
 const getComputerChoice = () => {
     let compChoice = Math.random();
 
@@ -91,12 +84,16 @@ function playRound(humanSelection, computerSelection) {
 //     loopGame();
 // }
 
-const buttons = document.querySelectorAll('.button');
-const score = document.querySelector('.score-container');
+
+
 const targetScore = 5;
 let humanScore = 0;
 let compScore = 0;
 
+const score = document.querySelector('.score-container');
+
+
+const buttons = document.querySelectorAll('.button');
 buttons.forEach(button => {
     button.addEventListener('click', e => {
         const humanSelection = e.currentTarget.innerText;
