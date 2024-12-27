@@ -70,6 +70,3 @@ buttons.forEach(button => {
         checkTheChampion();
     });
 });
-
-
-
