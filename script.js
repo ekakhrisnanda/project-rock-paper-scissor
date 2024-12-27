@@ -91,15 +91,25 @@ function playRound(humanSelection, computerSelection) {
 //     loopGame();
 // }
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.button');
 const targetScore = 5;
 let humanScore = 0;
 let compScore = 0;
 
-buttons.forEach((button) => {
-    button.addEventListener('click', event => {
-        let humanSelection = capitalize(event.target.textContent);
-        let computerSelection = getComputerChoice();
-
+buttons.forEach(button => {
+    button.addEventListener('click', e => {
+        const humanSelection = e.currentTarget.innerText;
+        console.log(humanSelection);
     });
 });
+
+// loop around all the buttons
+// If one of the each button clicked, return the txt content
+// store the return value in a variable for human selection
+// get the computer selection
+// play the game
+// increment score between two if one of has won the round
+// if anybody reach the target score first, announce the winner
+
+
+
