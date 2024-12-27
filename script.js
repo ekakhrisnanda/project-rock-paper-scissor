@@ -90,6 +90,12 @@ const targetScore = 5;
 let humanScore = 0;
 let compScore = 0;
 
+// Winner per round
+const round = document.querySelector('.round');
+const displayRoundWinner = document.createElement('p');
+round.appendChild(displayRoundWinner);
+
+// Score display
 const score = document.querySelector('.score-container');
 const displayHumanScore = document.createElement('p');
 const displayCompScore = document.createElement('p');
@@ -97,7 +103,6 @@ displayHumanScore.textContent = "Human Score = " + humanScore;
 displayCompScore.textContent = "Computer Score = " + compScore;
 score.appendChild(displayHumanScore);
 score.appendChild(displayCompScore);
-
 
 
 const buttons = document.querySelectorAll('.button');
@@ -108,6 +113,9 @@ buttons.forEach(button => {
         playRound(humanSelection, computerSelection);
     });
 });
+
+// change the console.logs inside playRound
+// display the winner of the round by insert it through DOM
 
 // loop around all the buttons
 // If one of the each button clicked, return the txt content
