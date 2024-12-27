@@ -10,21 +10,6 @@ const getComputerChoice = () => {
     }
 };
 
-function playRound(humanSelection, computerSelection) {
-    if (humanSelection === computerSelection) {
-        console.log("Tie!")
-    } else if (humanSelection === "Rock" && computerSelection === "Scissor" 
-        || humanSelection === "Paper" && computerSelection === "Rock" 
-        || humanSelection === "Scissor" && computerSelection === "Paper"
-    ) {
-        console.log(`You Win!!! ${humanSelection} beats ${computerSelection}`)
-        return humanScore++;
-    } else {
-        console.log(`You Lose haha. ${computerSelection} beats ${humanSelection}`);
-        return compScore++;
-    }
-}
-
 // function loopGame() {
 //     for(; humanScore < targetScore && compScore < targetScore; i++) {
 //         humanSelection = gethumanSelection(result);
@@ -103,6 +88,21 @@ displayHumanScore.textContent = "Human Score = " + humanScore;
 displayCompScore.textContent = "Computer Score = " + compScore;
 score.appendChild(displayHumanScore);
 score.appendChild(displayCompScore);
+
+function playRound(humanSelection, computerSelection) {
+    if (humanSelection === computerSelection) {
+        displayRoundWinner.textContent = 'Tie';
+    } else if (humanSelection === "Rock" && computerSelection === "Scissor" 
+        || humanSelection === "Paper" && computerSelection === "Rock" 
+        || humanSelection === "Scissor" && computerSelection === "Paper"
+    ) {
+        displayRoundWinner.textContent = `You Win!!! ${humanSelection} beats ${computerSelection}`;
+        return humanScore++;
+    } else {
+        displayRoundWinner.textContent = `You Lose haha. ${computerSelection} beats ${humanSelection}`;
+        return compScore++;
+    }
+}
 
 
 const buttons = document.querySelectorAll('.button');
