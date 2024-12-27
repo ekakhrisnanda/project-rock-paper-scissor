@@ -17,34 +17,34 @@ const getComputerChoice = () => {
     }
 };
 
-function playRound(humanChoice, compChoice) {
-    if (humanChoice === compChoice) {
+function playRound(humanSelection, computerSelection) {
+    if (humanSelection === computerSelection) {
         console.log("Tie!")
-    } else if (humanChoice === "Rock" && compChoice === "Scissor" 
-        || humanChoice === "Paper" && compChoice === "Rock" 
-        || humanChoice === "Scissor" && compChoice === "Paper"
+    } else if (humanSelection === "Rock" && computerSelection === "Scissor" 
+        || humanSelection === "Paper" && computerSelection === "Rock" 
+        || humanSelection === "Scissor" && computerSelection === "Paper"
     ) {
-        console.log(`You Win!!! ${humanChoice} beats ${compChoice}`)
+        console.log(`You Win!!! ${humanSelection} beats ${computerSelection}`)
         return humanScore++;
     } else {
-        console.log(`You Lose haha. ${compChoice} beats ${humanChoice}`);
+        console.log(`You Lose haha. ${computerSelection} beats ${humanSelection}`);
         return compScore++;
     }
 }
 
-function loopGame() {
-    for(; humanScore < targetScore && compScore < targetScore; i++) {
-        humanSelection = getHumanChoice(result);
-        computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
+// function loopGame() {
+//     for(; humanScore < targetScore && compScore < targetScore; i++) {
+//         humanSelection = gethumanSelection(result);
+//         computerSelection = getComputerChoice();
+//         playRound(humanSelection, computerSelection);
+//     }
 
-    if(humanScore >= targetScore) {
-        console.log("Congratulations, you are the champion!");
-    } else {
-        console.log("Computer wins. Better luck next time!");
-    }
-}
+//     if(humanScore >= targetScore) {
+//         console.log("Congratulations, you are the champion!");
+//     } else {
+//         console.log("Computer wins. Better luck next time!");
+//     }
+// }
 
 // function playGame() {
 
@@ -52,20 +52,20 @@ function loopGame() {
 //     let humanScore = 0;
 //     let compScore = 0;
 
-//     let humanSelection = getHumanChoice();
+//     let humanSelection = gethumanSelection();
 //     let computerSelection = getComputerChoice();
     
-//     function playRound(humanChoice, compChoice) {
-//         if (humanChoice === compChoice) {
+//     function playRound(humanSelection, computerSelection) {
+//         if (humanSelection === computerSelection) {
 //             console.log("Tie!")
-//         } else if (humanChoice === "Rock" && compChoice === "Scissor" 
-//             || humanChoice === "Paper" && compChoice === "Rock" 
-//             || humanChoice === "Scissor" && compChoice === "Paper"
+//         } else if (humanSelection === "Rock" && computerSelection === "Scissor" 
+//             || humanSelection === "Paper" && computerSelection === "Rock" 
+//             || humanSelection === "Scissor" && computerSelection === "Paper"
 //         ) {
-//             console.log(`You Win!!! ${humanChoice} beats ${compChoice}`)
+//             console.log(`You Win!!! ${humanSelection} beats ${computerSelection}`)
 //             return humanScore++;
 //         } else {
-//             console.log(`You Lose haha. ${compChoice} beats ${humanChoice}`);
+//             console.log(`You Lose haha. ${computerSelection} beats ${humanSelection}`);
 //             return compScore++;
 //         }
 //     }
@@ -81,7 +81,7 @@ function loopGame() {
 //             }
 //             return;
 //         } else {
-//             humanSelection = getHumanChoice();
+//             humanSelection = gethumanSelection();
 //             computerSelection = getComputerChoice();
 //             playRound(humanSelection, computerSelection);
 //             loopGame();
@@ -98,7 +98,8 @@ let compScore = 0;
 
 buttons.forEach((button) => {
     button.addEventListener('click', event => {
-
+        let humanSelection = capitalize(event.target.textContent);
+        let computerSelection = getComputerChoice();
 
     });
 });
