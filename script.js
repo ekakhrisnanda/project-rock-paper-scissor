@@ -71,15 +71,5 @@ buttons.forEach(button => {
     });
 });
 
-// create if statement
-// if human score or comp score reach the target score
-// display the champion
-
-// if (humanScore >= targetScore) {
-//     displayWinner.textContent = "Congratulations, you are the champion!";
-// } else {
-//     displayWinner.textContent = "Computer wins. Better luck next time!";
-// }
-
 
 
