@@ -99,7 +99,8 @@ let compScore = 0;
 buttons.forEach(button => {
     button.addEventListener('click', e => {
         const humanSelection = e.currentTarget.innerText;
-        console.log(humanSelection);
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
     });
 });
 
